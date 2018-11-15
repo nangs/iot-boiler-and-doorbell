@@ -6,7 +6,6 @@
 
 #include <ESP8266WiFi.h>
 
-
 #include <ESP8266HTTPClient.h>
 
 #include <EEPROM.h>
@@ -15,8 +14,7 @@
 #include "EEUtil.h"
 #include "SerialOS.h"
 #include "Util.h"
-
-extern WiFiServer server;
+#include "SDUtil.h"
 
 //=============================================================
 // SETUP
@@ -24,12 +22,20 @@ extern WiFiServer server;
 
 void setup()
 {
+  pinMode(SD_CARD_CSPIN, OUTPUT);
+  digitalWrite(SD_CARD_CSPIN, HIGH);
+
   Serial.println("Setup serial");
   Serial.begin(SERIAL_SPEED);
-//  Serial.swap(); // use D8(TX) - D7(RX)
+  //  Serial.swap(); // use D8(TX) - D7(RX)
 
   while (Serial.available())
     Serial.read();
+
+  SDInit();
+
+  Serial.println("SD CARD CONTENTS:");
+  SDList();
 
   EEInit();
 
@@ -61,5 +67,3 @@ void loop()
   if (server.status() == CLOSED)
     return;
 }
-
-

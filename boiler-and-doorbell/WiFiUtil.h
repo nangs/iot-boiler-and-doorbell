@@ -7,6 +7,8 @@
 #include <ESP8266WiFi.h>
 #include <WiFiServer.h>
 
+extern WiFiServer server;
+
 void reconnectWifi();
 void printWifiData();
 void printCurrentNet();
