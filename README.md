@@ -9,7 +9,7 @@ manage boiler zones activation and notify doorbell ring
 
 ## setup
 
-- connect through serial to pins D8(TX) - D7(RX)
+- connect through serial
 - type `CLTR+C` to stop wifi searching then type `?` to get commands table
 - set wifi ssid and pwd through commands then type `reconnect` to test wifi conn
 
