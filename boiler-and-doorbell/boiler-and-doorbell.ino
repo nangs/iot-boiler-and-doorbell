@@ -26,7 +26,7 @@ void setup()
 {
   Serial.println("Setup serial");
   Serial.begin(SERIAL_SPEED);
-  Serial.swap(); // use D8(TX) - D7(RX)
+//  Serial.swap(); // use D8(TX) - D7(RX)
 
   while (Serial.available())
     Serial.read();
